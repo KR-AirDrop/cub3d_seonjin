@@ -6,7 +6,7 @@
 /*   By: seonchoi <seonchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 21:19:00 by seonchoi          #+#    #+#             */
-/*   Updated: 2021/07/01 21:19:01 by seonchoi         ###   ########.fr       */
+/*   Updated: 2021/07/01 21:46:26 by seonchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	split_map(t_info *info)
 	info->index++;
 }
 
-void	input_player_N_S(t_info *info, char player_pos)
+void	input_player_n_s(t_info *info, char player_pos)
 {
 	if (player_pos == 'N')
 	{
@@ -69,7 +69,7 @@ void	input_player_N_S(t_info *info, char player_pos)
 	}
 }
 
-void	input_player_W_E(t_info *info, char player_pos)
+void	input_player_w_e(t_info *info, char player_pos)
 {
 	if (player_pos == 'W')
 	{

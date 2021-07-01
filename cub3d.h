@@ -6,7 +6,7 @@
 /*   By: seonchoi <seonchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 21:21:00 by seonchoi          #+#    #+#             */
-/*   Updated: 2021/07/01 21:30:23 by seonchoi         ###   ########.fr       */
+/*   Updated: 2021/07/01 21:46:25 by seonchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,8 +148,8 @@ void	rudder_down_key(t_info *info);
 void	rudder_left_key(t_info *info);
 void	rudder_right_key(t_info *info);
 void	clean_img(t_img *img);
-void	input_player_N_S(t_info *info, char player_pos);
-void	input_player_W_E(t_info *info, char player_pos);
+void	input_player_n_s(t_info *info, char player_pos);
+void	input_player_w_e(t_info *info, char player_pos);
 int		main_loop(t_info *info);
 int		key_press(int key, t_info *info);
 int		key_release(int key, t_info *info);

@@ -6,7 +6,7 @@
 /*   By: seonchoi <seonchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 16:09:21 by seonchoi          #+#    #+#             */
-/*   Updated: 2021/07/01 21:18:44 by seonchoi         ###   ########.fr       */
+/*   Updated: 2021/07/01 21:44:20 by seonchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ static char	**malloc_free(char **new_str)
 	i = 0;
 	while (new_str[i])
 	{
-		free (new_str[i]);
+		free(new_str[i]);
 		i++;
 	}
-	free (new_str);
+	free(new_str);
 	return (0);
 }
 
