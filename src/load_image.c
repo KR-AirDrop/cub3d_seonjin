@@ -6,7 +6,7 @@
 /*   By: seonchoi <seonchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 21:18:24 by seonchoi          #+#    #+#             */
-/*   Updated: 2021/07/01 21:18:46 by seonchoi         ###   ########.fr       */
+/*   Updated: 2021/07/01 21:31:12 by seonchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ void	draw(t_info *info)
 	int	x;
 
 	y = 0;
-	while (y < height)
+	while (y < HEIGHT)
 	{
 		x = 0;
-		while (x < width)
+		while (x < WIDTH)
 		{
-			info->img.data[y * width + x] = info->buf[y][x];
+			info->img.data[y * WIDTH + x] = info->buf[y][x];
 			x++;
 		}
 		y++;

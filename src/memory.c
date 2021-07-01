@@ -6,7 +6,7 @@
 /*   By: seonchoi <seonchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 20:15:02 by seonchoi          #+#    #+#             */
-/*   Updated: 2021/07/01 21:22:10 by seonchoi         ###   ########.fr       */
+/*   Updated: 2021/07/01 21:32:15 by seonchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,8 @@ void	initialization(t_info *info)
 	info->key.key_esc = 0;
 	info->movespeed = 0.05;
 	info->rotspeed = 0.05;
-	info->zbuffer = (double *)malloc(sizeof(double) * width);
-	info->buf = (int **)malloc(sizeof(int *) * height);
+	info->zbuffer = (double *)malloc(sizeof(double) * WIDTH);
+	info->buf = (int **)malloc(sizeof(int *) * HEIGHT);
 }
 
 void	first_info(t_info *info)
@@ -92,16 +92,16 @@ void	first_info(t_info *info)
 
 	initialization(info);
 	i = 0;
-	while (i < height)
+	while (i < HEIGHT)
 	{
-		info->buf[i] = (int *)malloc(sizeof(int) * (height));
+		info->buf[i] = (int *)malloc(sizeof(int) * (HEIGHT));
 		i++;
 	}
 	i = 0;
-	while (i < height)
+	while (i < HEIGHT)
 	{
 		j = 0;
-		while (j < width)
+		while (j < WIDTH)
 		{
 			info->buf[i][j] = 0;
 			j++;
