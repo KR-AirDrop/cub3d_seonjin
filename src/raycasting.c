@@ -6,7 +6,7 @@
 /*   By: seonchoi <seonchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 21:19:09 by seonchoi          #+#    #+#             */
-/*   Updated: 2021/07/01 21:19:10 by seonchoi         ###   ########.fr       */
+/*   Updated: 2021/07/01 21:24:39 by seonchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	calc(t_info *info)
 	t_calac_data	data;
 
 	x = 0;
-	while (x < width)
+	while (x < WIDTH)
 	{
-		data.camera_x = 2 * x / (double)width - 1;
+		data.camera_x = 2 * x / (double)WIDTH - 1;
 		data.raydir_x = info->dir_x + info->plane_x * data.camera_x;
 		data.raydir_y = info->dir_y + info->plane_y * data.camera_x;
 		data.map_x = (int)info->pos_x;
@@ -43,21 +43,21 @@ void	calc_color(t_info *info, t_calac_data *d, int x)
 	else
 		d->wall_x = info->pos_x + d->perpwalldist * d->raydir_x;
 	d->wall_x -= floor(d->wall_x);
-	d->tex_x = (int)(d->wall_x * (double)Tex_W);
+	d->tex_x = (int)(d->wall_x * (double)TEX_W);
 	if (d->side == 0 && d->raydir_x > 0)
-		d->tex_x = Tex_W - d->tex_x - 1;
+		d->tex_x = TEX_W - d->tex_x - 1;
 	if (d->side == 1 && d->raydir_y < 0)
-		d->tex_x = Tex_W - d->tex_x - 1;
-	d->step = 1.0 * Tex_H / d->lineheight;
-	d->texPos = (d->drawstart - height / 2 + d->lineheight / 2) * d->step;
+		d->tex_x = TEX_W - d->tex_x - 1;
+	d->step = 1.0 * TEX_H / d->lineheight;
+	d->texPos = (d->drawstart - HEIGHT / 2 + d->lineheight / 2) * d->step;
 	d->index_y = d->drawstart;
 	while (d->index_y < d->drawend)
 	{
-		d->tex_y = (int)d->texPos & (Tex_H - 1);
+		d->tex_y = (int)d->texPos & (TEX_H - 1);
 		d->texPos += d->step;
-		d->color = info->texture[d->texnum][Tex_H * d->tex_y + d->tex_x];
+		d->color = info->texture[d->texnum][TEX_H * d->tex_y + d->tex_x];
 		if (d->side == 0 || d->side == 1 || d->side == 2 || d->side == 3)
-			d->color = info->texture[d->texnum][Tex_H * d->tex_y + d->tex_x];
+			d->color = info->texture[d->texnum][TEX_H * d->tex_y + d->tex_x];
 		info->buf[d->index_y][x] = d->color;
 		d->index_y++;
 	}
@@ -99,13 +99,13 @@ void	textured_input(t_calac_data *data, t_info *info)
 	else
 		data->perpwalldist = (data->map_y - info->pos_y
 				+ (1 - data->step_y) / 2) / data->raydir_y;
-	data->lineheight = (int)(height / data->perpwalldist);
-	data->drawstart = -data->lineheight / 2 + height / 2;
+	data->lineheight = (int)(HEIGHT / data->perpwalldist);
+	data->drawstart = -data->lineheight / 2 + HEIGHT / 2;
 	if (data->drawstart < 0)
 		data->drawstart = 0;
-	data->drawend = data->lineheight / 2 + height / 2;
-	if (data->drawend >= height)
-		data->drawend = height - 1;
+	data->drawend = data->lineheight / 2 + HEIGHT / 2;
+	if (data->drawend >= HEIGHT)
+		data->drawend = HEIGHT - 1;
 	if (info->map[data->map_x][data->map_y] == '1' && data->side == 0)
 		data->texnum = 0;
 	else if (info->map[data->map_x][data->map_y] == '1' && data->side == 1)

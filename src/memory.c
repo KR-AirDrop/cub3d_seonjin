@@ -6,7 +6,7 @@
 /*   By: seonchoi <seonchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 20:15:02 by seonchoi          #+#    #+#             */
-/*   Updated: 2021/07/01 21:19:05 by seonchoi         ###   ########.fr       */
+/*   Updated: 2021/07/01 21:22:10 by seonchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	memory_plus(t_info *info)
 		return (-1);
 	while (i[0] < 11)
 	{
-		info->texture[i[0]] = (int *)malloc(sizeof(int) * (Tex_H * Tex_W));
+		info->texture[i[0]] = (int *)malloc(sizeof(int) * (TEX_H * TEX_W));
 		if (!info->texture[i[0]])
 			return (-1);
 		i[0]++;
@@ -31,7 +31,7 @@ int	memory_plus(t_info *info)
 	while (i[0] < 11)
 	{
 		i[1] = 0;
-		while (i[1] < Tex_H * Tex_W)
+		while (i[1] < TEX_H * TEX_W)
 		{
 			info->texture[i[0]][i[1]] = 0;
 			i[1]++;
@@ -51,7 +51,7 @@ int	memory_plus2(t_info *info)
 		return (-1);
 	while (i[0] < 4)
 	{
-		info->path[i[0]] = (char *)malloc(sizeof(char) * (Tex_H * Tex_W));
+		info->path[i[0]] = (char *)malloc(sizeof(char) * (TEX_H * TEX_W));
 		if (!info->path[i[0]])
 			return (-1);
 		i[0]++;
@@ -60,7 +60,7 @@ int	memory_plus2(t_info *info)
 	while (i[0] < 4)
 	{
 		i[1] = 0;
-		while (i[1] < Tex_H * Tex_W)
+		while (i[1] < TEX_H * TEX_W)
 		{
 			info->path[i[0]][i[1]] = 0;
 			i[1]++;

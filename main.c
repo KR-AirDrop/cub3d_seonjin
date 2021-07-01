@@ -6,7 +6,7 @@
 /*   By: seonchoi <seonchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 19:45:31 by seonchoi          #+#    #+#             */
-/*   Updated: 2021/07/01 20:56:21 by seonchoi         ###   ########.fr       */
+/*   Updated: 2021/07/01 21:23:21 by seonchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ int	main(int argc, char *argv[])
 		{
 			if (!main2(&info))
 				return (0);
-			info.win = mlx_new_window(info.mlx, width, height, "mlx");
-			info.img.img = mlx_new_image(info.mlx, width, height);
+			info.win = mlx_new_window(info.mlx, WIDTH, HEIGHT, "mlx");
+			info.img.img = mlx_new_image(info.mlx, WIDTH, HEIGHT);
 			info.img.data = (int *)mlx_get_data_addr(info.img.img,
 					&info.img.bpp, &info.img.size_l, &info.img.endian);
 			mlx_loop_hook(info.mlx, &main_loop, &info);
