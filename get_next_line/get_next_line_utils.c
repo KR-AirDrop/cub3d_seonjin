@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjin <sjin@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: seonchoi <seonchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 10:57:52 by sjin              #+#    #+#             */
-/*   Updated: 2021/01/13 10:57:54 by sjin             ###   ########.fr       */
+/*   Updated: 2021/07/01 21:05:58 by seonchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t		ft_strlen1(const char *str)
+size_t	ft_strlen1(const char *str)
 {
 	size_t	i;
 
@@ -22,7 +22,7 @@ size_t		ft_strlen1(const char *str)
 	return (i);
 }
 
-char		*ft_strcat1(char *dst, const char *src)
+char	*ft_strcat1(char *dst, const char *src)
 {
 	int	i;
 	int	j;
@@ -41,7 +41,7 @@ char		*ft_strcat1(char *dst, const char *src)
 	return (dst);
 }
 
-char		*ft_strcpy1(char *dst, const char *src)
+char	*ft_strcpy1(char *dst, const char *src)
 {
 	int	i;
 
@@ -55,7 +55,7 @@ char		*ft_strcpy1(char *dst, const char *src)
 	return (dst);
 }
 
-char		*ft_strjoin1(char *s1, char *s2)
+char	*ft_strjoin1(char *s1, char *s2)
 {
 	char	*new_str;
 	int		s1_len;
@@ -65,7 +65,8 @@ char		*ft_strjoin1(char *s1, char *s2)
 		return (NULL);
 	s1_len = ft_strlen1(s1);
 	s2_len = ft_strlen1(s2);
-	if (!(new_str = (char*)malloc(sizeof(char) * (s1_len + s2_len + 1))))
+	new_str = (char *)malloc(sizeof(char) * (s1_len + s2_len + 1));
+	if (!new_str)
 		return (NULL);
 	ft_strcpy1(new_str, s1);
 	free(s1);
@@ -73,7 +74,7 @@ char		*ft_strjoin1(char *s1, char *s2)
 	return (new_str);
 }
 
-char		*ft_strdup1(char *str)
+char	*ft_strdup1(char *str)
 {
 	char	*new_str;
 	int		i;
@@ -81,7 +82,8 @@ char		*ft_strdup1(char *str)
 	i = 0;
 	if (!(str))
 		return (NULL);
-	if (!(new_str = (char*)malloc(sizeof(char) * (ft_strlen1(str) + 1))))
+	new_str = (char *)malloc(sizeof(char) * (ft_strlen1(str) + 1));
+	if (!new_str)
 		return (NULL);
 	while (str[i])
 	{

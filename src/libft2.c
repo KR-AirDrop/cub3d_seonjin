@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   libft2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seonchoi <seonchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/13 10:57:27 by sjin              #+#    #+#             */
-/*   Updated: 2021/07/01 21:05:40 by seonchoi         ###   ########.fr       */
+/*   Created: 2021/07/01 21:00:51 by seonchoi          #+#    #+#             */
+/*   Updated: 2021/07/01 21:01:02 by seonchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "../cub3d.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <fcntl.h>
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*new_s;
+	size_t	i;
+	size_t	j;
 
-# define OPEN_MAX 32
-
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 5000
-# endif
-
-int		get_next_line(int fd, char **line);
-size_t	ft_strlen1(const char *str);
-char	*ft_strjoin1(char *s1, char *s2);
-char	*ft_strdup1(char *str);
-
-#endif
+	i = 0;
+	j = 0;
+	if (s == 0)
+		return (NULL);
+	new_s = (char *)malloc(sizeof(char) * (len + 1));
+	if (!new_s)
+		return (NULL);
+	while (s[i] != '\0')
+	{
+		if (i >= start && j < len)
+		{
+			new_s[j] = s[i];
+			j++;
+		}
+		i++;
+	}
+	new_s[j] = 0;
+	return (new_s);
+}
