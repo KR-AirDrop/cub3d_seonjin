@@ -1,7 +1,6 @@
 # ifndef CUB3D_H
 # define	CUB3D_H
 
-# include "./libft/libft.h"
 # include "mlx.h"
 # include <math.h>
 # include <string.h>
@@ -11,8 +10,8 @@
 # define X_EVENT_KEY_PRESS	2
 # define X_EVENT_KEY_RELEASE 3
 # define X_EVENT_KEY_EXIT	17
-# define texWidth 64
-# define texHeight 64
+# define Tex_W 64
+# define Tex_H 64
 # define height 1000
 # define width 1000
 # define K_W 13
@@ -22,9 +21,15 @@
 # define K_AR_L 123
 # define K_AR_R 124
 # define K_ESC 53
-# define uDiv 1
-# define vDiv 1
-# define vMove 0.0
+
+typedef struct  s_color
+{
+    int     i;
+    int     r;
+    int     g;
+    int     b;
+    int     color;
+}               t_color;
 
 typedef struct	s_img
 {
@@ -62,6 +67,12 @@ typedef struct	s_info
     int     index;
     int     check_player_point;
     int     player_num;
+    int     is_zero;
+    int     p;
+    int     m_x;
+    int     m_y;
+    int     m_x1;
+    int     m_y1;
 	double  pos_x;
 	double  pos_y;
 	double  dir_x;
@@ -91,6 +102,7 @@ typedef struct s_calac_data
     int     tex_x;
     int     tex_y;
     int     color;
+    int     index_y;
     double  wall_x;
     double  step;
     double  texPos;
@@ -112,7 +124,7 @@ void	key_update(t_info *info);
 void	calc(t_info *info);
 void	draw(t_info *info);
 void    floar_casting(t_info *info);
-void    calc_color(t_info *info, t_calac_data *data,int x);
+void    calc_color(t_info *info, t_calac_data *d,int x);
 void    check_player(t_info *info, char player_pos, int pos_x);
 void    ray_plus(t_calac_data *data, t_info *info);
 void    textured_input(t_calac_data *data, t_info *info);
@@ -145,10 +157,20 @@ int     parse_line(char *line, t_info *info);
 int     treat_description(char *file_name,t_info *info);
 int     main(int argc, char *argv[]);
 int     check_line(char *line);
+int		ft_isdigit(int c);
+char	*ft_strdup(const char *s);
+char	*ft_strjoin(char const *s1, char const *s2);
+size_t	ft_strlcpy(char *dest, const char *src, size_t num);
+int		ft_strlen(char *str);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	**ft_split(char const *s, char c);
 
 //==============================//
-int	check_map(char **map, int x, int y, int *p);
-char	**init_map(char **map);
-int		free_map(char **map, int cnt);
-int	map_checker(t_info *info);
+void        init_put_num(t_info *info);
+void        put_num(int *g_dirx, int *g_diry);
+char        **init_map(char **map, t_info *info);
+int         check_map(char **map, int x, int y, int *p);
+int         free_map(char **map, int cnt);
+int         map_checker(t_info *info);
+int         map_checker2(t_info *info, char **test_map);
 # endif
