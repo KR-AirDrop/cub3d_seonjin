@@ -6,7 +6,7 @@
 /*   By: seonchoi <seonchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 21:19:00 by seonchoi          #+#    #+#             */
-/*   Updated: 2021/07/02 17:05:22 by seonchoi         ###   ########.fr       */
+/*   Updated: 2021/07/02 17:59:15 by seonchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	check_player(t_info *info, char player_pos, int pos_x)
 
 void	split_map(t_info *info)
 {
-	info->map = (char **)malloc(sizeof(char) * info->index);
 	info->map = ft_split(info->tmp, 'a');
 	info->index++;
 }

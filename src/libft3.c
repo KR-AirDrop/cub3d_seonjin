@@ -6,7 +6,7 @@
 /*   By: seonchoi <seonchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 16:09:21 by seonchoi          #+#    #+#             */
-/*   Updated: 2021/07/01 21:44:20 by seonchoi         ###   ########.fr       */
+/*   Updated: 2021/07/02 17:41:59 by seonchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ char	**ft_split(char const *s, char c)
 	if (s[0] == '\0')
 		return (0);
 	index[1] = find_row(s, c);
-	new_str = (char **)malloc(sizeof(char *) * (index[1] + 1));
+	new_str = (char **)malloc(sizeof(char *) * (index[1]) + 1);
 	if (!new_str)
 		return (0);
 	index[2] = 0;
