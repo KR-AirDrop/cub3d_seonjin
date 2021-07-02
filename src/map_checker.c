@@ -6,7 +6,7 @@
 /*   By: seonchoi <seonchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 21:18:55 by seonchoi          #+#    #+#             */
-/*   Updated: 2021/07/01 21:18:56 by seonchoi         ###   ########.fr       */
+/*   Updated: 2021/07/02 16:48:36 by seonchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,31 +36,31 @@ int	check_map(char **map, int x, int y, int *p)
 
 char	**init_map(char **map, t_info *info)
 {
-	char	**test_map;
-
-	test_map = (char **)malloc(sizeof(char *) * 103);
-	if (!test_map)
+	char	**testmap;
+	
+	testmap = (char **)malloc(sizeof(char *) * 103);
+	if (!testmap)
 		return (0);
-	test_map[102] = 0;
+	testmap[102] = 0;
 	info->m_y = -1;
 	while (++info->m_y < 102)
 	{
-		test_map[info->m_y] = (char *)malloc(sizeof(char) * 103);
-		if (!test_map[info->m_y])
+		testmap[info->m_y] = (char *)malloc(sizeof(char) * 103);
+		if (!testmap[info->m_y])
 			return (0);
-		test_map[info->m_y][102] = 0;
+		testmap[info->m_y][102] = 0;
 		info->m_x = -1;
 		while (++info->m_x < 102)
-			test_map[info->m_y][info->m_x] = ' ';
+			testmap[info->m_y][info->m_x] = ' ';
 	}
 	info->m_y = -1;
 	while (map[++info->m_y])
 	{
 		info->m_x = -1;
 		while (map[info->m_y][++info->m_x])
-			test_map[info->m_y + 1][info->m_x + 1] = map[info->m_y][info->m_x];
+			testmap[info->m_y + 1][info->m_x + 1] = map[info->m_y][info->m_x];
 	}
-	return (test_map);
+	return (testmap);
 }
 
 int	free_map(char **map, int cnt)
@@ -76,29 +76,29 @@ int	free_map(char **map, int cnt)
 
 int	map_checker(t_info *info)
 {
-	char	**test_map;
+	char	**testmap;
 
-	test_map = init_map(info->map, info);
+	testmap = init_map(info->map, info);
 	init_put_num(info);
 	info->m_y1 = -1;
-	while (test_map[++info->m_y1])
+	while (testmap[++info->m_y1])
 	{
 		info->m_x1 = -1;
-		while (test_map[info->m_y1][++info->m_x1])
+		while (testmap[info->m_y1][++info->m_x1])
 		{
-			if (test_map[info->m_y1][info->m_x1] == '0')
+			if (testmap[info->m_y1][info->m_x1] == '0')
 			{
 				info->is_zero = 1;
-				if (check_map(test_map, info->m_x1, info->m_y1, &info->p) == 0)
+				if (check_map(testmap, info->m_x1, info->m_y1, &info->p) == 0)
 				{
 					write(1, "Map check : ERROR\n", 19);
-					free_map(test_map, 103);
+					free_map(testmap, 103);
 					return (0);
 				}
 			}
 		}
 	}
-	if (!map_checker2(info, test_map))
+	if (!map_checker2(info, testmap))
 		return (0);
 	return (1);
 }

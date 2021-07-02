@@ -6,7 +6,7 @@
 /*   By: seonchoi <seonchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 21:21:00 by seonchoi          #+#    #+#             */
-/*   Updated: 2021/07/01 21:46:25 by seonchoi         ###   ########.fr       */
+/*   Updated: 2021/07/02 17:01:07 by seonchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ typedef struct s_info
 	int		m_y;
 	int		m_x1;
 	int		m_y1;
+	int		m_x2;
+	int		m_y2;
 	double	pos_x;
 	double	pos_y;
 	double	dir_x;
@@ -182,4 +184,6 @@ int		check_map(char **map, int x, int y, int *p);
 int		free_map(char **map, int cnt);
 int		map_checker(t_info *info);
 int		map_checker2(t_info *info, char **test_map);
+
+void	free_path(t_info *info);
 #endif

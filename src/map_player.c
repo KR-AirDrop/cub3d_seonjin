@@ -6,7 +6,7 @@
 /*   By: seonchoi <seonchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 21:19:00 by seonchoi          #+#    #+#             */
-/*   Updated: 2021/07/01 21:46:26 by seonchoi         ###   ########.fr       */
+/*   Updated: 2021/07/02 16:52:25 by seonchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	check_player(t_info *info, char player_pos, int pos_x)
 {
 	info->pos_x = info->index + 0.5;
 	info->pos_y = pos_x + 0.5;
-	input_player_N_S(info, player_pos);
-	input_player_W_E(info, player_pos);
+	input_player_n_s(info, player_pos);
+	input_player_w_e(info, player_pos);
 }
 
 void	split_map(t_info *info)

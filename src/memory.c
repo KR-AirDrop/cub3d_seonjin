@@ -6,7 +6,7 @@
 /*   By: seonchoi <seonchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 20:15:02 by seonchoi          #+#    #+#             */
-/*   Updated: 2021/07/01 21:32:15 by seonchoi         ###   ########.fr       */
+/*   Updated: 2021/07/02 17:03:01 by seonchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,30 +43,29 @@ int	memory_plus(t_info *info)
 
 int	memory_plus2(t_info *info)
 {
-	int	i[2];
-
-	i[0] = 0;
+	info->m_x2 = 0;
 	info->path = (char **)malloc(sizeof(char *) * 4);
 	if (!info->path)
 		return (-1);
-	while (i[0] < 4)
+	while (info->m_x2 < 4)
 	{
-		info->path[i[0]] = (char *)malloc(sizeof(char) * (TEX_H * TEX_W));
-		if (!info->path[i[0]])
+		info->path[info->m_x2] = (char *)malloc(sizeof(char) * (TEX_H * TEX_W));
+		if (!info->path[info->m_x2])
 			return (-1);
-		i[0]++;
+		info->m_x2++;
 	}
-	i[0] = 0;
-	while (i[0] < 4)
+	info->m_x2 = 0;
+	while (info->m_x2 < 4)
 	{
-		i[1] = 0;
-		while (i[1] < TEX_H * TEX_W)
+		info->m_y2 = 0;
+		while (info->m_y2 < TEX_H * TEX_W)
 		{
-			info->path[i[0]][i[1]] = 0;
-			i[1]++;
+			info->path[info->m_x2][info->m_y2] = 0;
+			info->m_y2++;
 		}
-		i[0]++;
+		info->m_x2++;
 	}
+	free_path(info);
 	return (0);
 }
 

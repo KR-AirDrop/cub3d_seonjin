@@ -6,7 +6,7 @@
 /*   By: seonchoi <seonchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 21:18:05 by seonchoi          #+#    #+#             */
-/*   Updated: 2021/07/01 21:18:31 by seonchoi         ###   ########.fr       */
+/*   Updated: 2021/07/02 16:28:12 by seonchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	treat_description(char *file_name, t_info *info)
 		free(line);
 		gnl_return = get_next_line(fd, &line);
 	}
+	free(line);
 	close(fd);
 	return (1);
 }
