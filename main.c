@@ -6,7 +6,7 @@
 /*   By: seonchoi <seonchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 19:45:31 by seonchoi          #+#    #+#             */
-/*   Updated: 2021/07/01 23:05:00 by seonchoi         ###   ########.fr       */
+/*   Updated: 2021/07/02 17:07:44 by seonchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main_loop(t_info *info)
 	return (0);
 }
 
-int	main2 (t_info *info)
+int	main2(t_info *info)
 {
 	split_map(info);
 	first_info(info);
