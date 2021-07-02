@@ -6,7 +6,7 @@
 /*   By: seonchoi <seonchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 21:18:55 by seonchoi          #+#    #+#             */
-/*   Updated: 2021/07/02 16:48:36 by seonchoi         ###   ########.fr       */
+/*   Updated: 2021/07/02 17:08:27 by seonchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	check_map(char **map, int x, int y, int *p)
 char	**init_map(char **map, t_info *info)
 {
 	char	**testmap;
-	
+
 	testmap = (char **)malloc(sizeof(char *) * 103);
 	if (!testmap)
 		return (0);
