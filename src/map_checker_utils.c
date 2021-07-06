@@ -6,7 +6,7 @@
 /*   By: seonchoi <seonchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 21:18:28 by seonchoi          #+#    #+#             */
-/*   Updated: 2021/07/01 21:18:50 by seonchoi         ###   ########.fr       */
+/*   Updated: 2021/07/06 15:48:58 by seonchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,19 @@ int	map_checker2(t_info *info, char **test_map)
 {
 	if (info->is_zero == 0)
 	{
-		write(1, "No place\n", 9);
+		write(1, "Error\n", 6);
 		return (0);
 	}
 	if (info->player_num != 1)
 	{
-		printf("player num error (%d)\n", info->player_num);
+		write(1, "Error\n", 6);
 		return (0);
 	}
 	if (info->p == 0)
 	{
-		printf("player out\n");
+		write(1, "Error\n", 6);
 		return (0);
 	}
-	write(1, "Map check : OK\n", 15);
 	free_map(test_map, 103);
 	return (1);
 }

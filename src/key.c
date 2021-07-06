@@ -6,7 +6,7 @@
 /*   By: seonchoi <seonchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 21:18:16 by seonchoi          #+#    #+#             */
-/*   Updated: 2021/07/02 16:05:16 by seonchoi         ###   ########.fr       */
+/*   Updated: 2021/07/06 17:10:03 by seonchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,7 @@ int	key_press(int key, t_info *info)
 
 int	key_release(int key, t_info *info)
 {
-	if (key == K_ESC)
-		exit(0);
-	else if (key == K_W)
+	if (key == K_W)
 		info->key.key_w = 0;
 	else if (key == K_A)
 		info->key.key_a = 0;
@@ -64,8 +62,6 @@ void	key_update(t_info *info)
 		camera_left(info);
 	if (info->key.key_right)
 		camera_right(info);
-	if (info->key.key_esc)
-		exit(0);
 }
 
 void	camera_left(t_info *info)

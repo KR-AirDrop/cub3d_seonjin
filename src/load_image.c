@@ -6,7 +6,7 @@
 /*   By: seonchoi <seonchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 21:18:24 by seonchoi          #+#    #+#             */
-/*   Updated: 2021/07/01 21:31:12 by seonchoi         ###   ########.fr       */
+/*   Updated: 2021/07/06 15:29:49 by seonchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ void	load_texture(t_info *info)
 	t_img	img;
 
 	clean_img(&img);
-	load_image(info, info->texture[0], info->path[0], &img);
-	load_image(info, info->texture[1], info->path[1], &img);
-	load_image(info, info->texture[2], info->path[2], &img);
-	load_image(info, info->texture[3], info->path[3], &img);
+	load_image(info, info->texture[1], info->path[0], &img);
+	load_image(info, info->texture[0], info->path[1], &img);
+	load_image(info, info->texture[3], info->path[2], &img);
+	load_image(info, info->texture[2], info->path[3], &img);
 }

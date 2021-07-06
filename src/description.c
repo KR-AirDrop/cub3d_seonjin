@@ -6,7 +6,7 @@
 /*   By: seonchoi <seonchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 21:18:05 by seonchoi          #+#    #+#             */
-/*   Updated: 2021/07/02 17:27:29 by seonchoi         ###   ########.fr       */
+/*   Updated: 2021/07/06 17:26:33 by seonchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	treat_description(char *file_name, t_info *info)
 		free(line);
 		gnl_return = get_next_line(fd, &line);
 	}
+	if (!parse_line(line, info))
+		return (0);
 	free(line);
 	close(fd);
 	return (1);
@@ -45,6 +47,7 @@ int	parse_line(char *line, t_info *info)
 
 	num = 0;
 	i = 0;
+	info->err = 0;
 	while (line[i] != '\0')
 	{
 		if (is_space(line[i]))
@@ -59,41 +62,31 @@ int	parse_line(char *line, t_info *info)
 		else
 			return (0);
 	}
+	if (info->err == -1)
+		return (0);
 	return (1);
 }
 
 int	is_type_identifier(char a, char b, char *line, t_info *info)
 {
-	if (((a == 'F' || a == 'C') && is_space(b)))
-		config_color(a, line + 1, info);
-	else if (a == 'N' && b == 'O')
-		config_path(0, line + 2, info);
-	else if (a == 'S' && b == 'O')
-		config_path(1, line + 2, info);
-	else if (a == 'W' && b == 'E')
-		config_path(2, line + 2, info);
-	else if (a == 'E' && b == 'A')
-		config_path(3, line + 2, info);
-	else
-		return (0);
-	return (1);
-}
-
-int	check_line(char *line)
-{
 	int		i;
+	t_color	color;
 
 	i = 0;
-	while (line[i] != '\0')
-	{
-		if (line[i] == '0' || line[i] == '1' || line[i] == 'N'
-			|| line[i] == 'S' || line[i] == 'W' || line[i] == 'E')
-			i++;
-		else
-		{
-			printf("Something Wrong\n");
-			return (0);
-		}
-	}
+	init_color(&color);
+	if (((a == 'F' || a == 'C') && is_space(b)))
+		i = config_color(a, line + 1, info, &color);
+	else if (a == 'N' && b == 'O')
+		i = config_path(0, line + 2, info);
+	else if (a == 'S' && b == 'O')
+		i = config_path(1, line + 2, info);
+	else if (a == 'W' && b == 'E')
+		i = config_path(2, line + 2, info);
+	else if (a == 'E' && b == 'A')
+		i = config_path(3, line + 2, info);
+	else
+		return (0);
+	if (i == -1)
+		return (0);
 	return (1);
 }

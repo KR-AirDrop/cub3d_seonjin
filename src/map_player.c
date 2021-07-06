@@ -6,7 +6,7 @@
 /*   By: seonchoi <seonchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 21:19:00 by seonchoi          #+#    #+#             */
-/*   Updated: 2021/07/02 17:59:15 by seonchoi         ###   ########.fr       */
+/*   Updated: 2021/07/06 15:45:37 by seonchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	save_map1(char *line, t_info *info)
 	j = 0;
 	while (j < line_len)
 	{
+		if (!is_map_character(line[j]))
+			info->err = -1;
 		if (find_player_pos(line[j]))
 		{
 			info->player_num++;

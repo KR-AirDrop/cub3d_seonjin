@@ -6,7 +6,7 @@
 /*   By: seonchoi <seonchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 21:18:55 by seonchoi          #+#    #+#             */
-/*   Updated: 2021/07/02 17:08:27 by seonchoi         ###   ########.fr       */
+/*   Updated: 2021/07/06 15:50:38 by seonchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int	map_checker(t_info *info)
 				info->is_zero = 1;
 				if (check_map(testmap, info->m_x1, info->m_y1, &info->p) == 0)
 				{
-					write(1, "Map check : ERROR\n", 19);
+					write(1, "Error\n", 6);
 					free_map(testmap, 103);
 					return (0);
 				}

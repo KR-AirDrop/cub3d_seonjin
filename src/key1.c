@@ -6,7 +6,7 @@
 /*   By: seonchoi <seonchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 21:18:14 by seonchoi          #+#    #+#             */
-/*   Updated: 2021/07/01 21:18:36 by seonchoi         ###   ########.fr       */
+/*   Updated: 2021/07/06 17:35:41 by seonchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,10 @@ void	rudder_right_key(t_info *info)
 	if (info->map[(int)(info->pos_x)][(int)(info->pos_y
 			+ info->plane_y * info->movespeed)] != '1')
 		info->pos_y += info->plane_y * info->movespeed;
+}
+
+int	cub_exit(void)
+{
+	exit(0);
+	return (0);
 }

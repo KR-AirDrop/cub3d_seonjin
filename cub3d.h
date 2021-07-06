@@ -6,7 +6,7 @@
 /*   By: seonchoi <seonchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 21:21:00 by seonchoi          #+#    #+#             */
-/*   Updated: 2021/07/02 17:45:30 by seonchoi         ###   ########.fr       */
+/*   Updated: 2021/07/06 17:34:38 by seonchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include "mlx.h"
 # include <math.h>
-# include <string.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include "./get_next_line/get_next_line.h"
 # define X_EVENT_KEY_PRESS	2
@@ -80,6 +78,7 @@ typedef struct s_info
 	int		check_player_point;
 	int		player_num;
 	int		is_zero;
+	int		err;
 	int		p;
 	int		m_x;
 	int		m_y;
@@ -138,11 +137,11 @@ void	calc(t_info *info);
 void	draw(t_info *info);
 void	floar_casting(t_info *info);
 void	calc_color(t_info *info, t_calac_data *d, int x);
+void	init_color(t_color *color);
 void	check_player(t_info *info, char player_pos, int pos_x);
 void	ray_plus(t_calac_data *data, t_info *info);
 void	textured_input(t_calac_data *data, t_info *info);
 void	hit_check(t_calac_data *data, t_info *info);
-void	put_rgb(char location, t_info *info, int color);
 void	camera_left(t_info *info);
 void	camera_right(t_info *info);
 void	rudder_up_key(t_info *info);
@@ -152,6 +151,8 @@ void	rudder_right_key(t_info *info);
 void	clean_img(t_img *img);
 void	input_player_n_s(t_info *info, char player_pos);
 void	input_player_w_e(t_info *info, char player_pos);
+int		cub_exit(void);
+int		put_rgb(char location, t_info *info, t_color *color);
 int		main_loop(t_info *info);
 int		key_press(int key, t_info *info);
 int		key_release(int key, t_info *info);
@@ -163,13 +164,12 @@ int		file_exists(char *file_name);
 int		is_space(char c);
 int		is_map_character(char c);
 int		save_map1(char *line, t_info *info);
-int		config_color(char location, char *line, t_info *info);
+int		config_color(char location, char *line, t_info *info, t_color *color);
 int		config_path(int index, char *line, t_info *info);
 int		is_type_identifier(char a, char b, char *line, t_info *info);
 int		parse_line(char *line, t_info *info);
 int		treat_description(char *file_name, t_info *info);
 int		main(int argc, char *argv[]);
-int		check_line(char *line);
 int		ft_isdigit(int c);
 char	*ft_strdup(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
